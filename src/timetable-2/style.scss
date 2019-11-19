@@ -1,0 +1,655 @@
+.kenzap .kp-timetable-1 :before,
+.kenzap .kp-timetable-1 :after,
+.kenzap .kp-timetable-1 *{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.kenzap .kp-timetable-1 img,
+.kenzap .kp-timetable-1 ul,
+.kenzap .kp-timetable-1 li,
+.kenzap .kp-timetable-1 p,
+.kenzap .kp-timetable-1 a{
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  text-decoration: none;
+  list-style:none
+}
+
+.kenzap .kp-timetable-1.autoPadding {
+  padding: calc(30px + (var(--paddings) - 30) * ((100vw - 300px) / (1600 - 300))) 0;
+}
+
+.kenzap .kp-timetable-1 .kenzap-container{
+  max-width:1270px;
+  width:100%;
+  padding:0 var(--paddings2,0);
+  margin:0 auto;
+  overflow: hidden;
+}
+
+.kenzap .kp-timetable-1{
+  padding:60px 0;
+}
+
+.kenzap .kp-timetable-1 .tab-content{
+  display:none;
+  opacity:0;
+  transition:none;
+}
+
+.kenzap .kp-timetable-1 .tab-content.active{
+  display:block;
+  opacity:1;
+}
+
+.kenzap .kp-timetable-1 .kp-nav{
+  margin:0 0 50px;
+  display:flex;
+  display:-webkit-flex;
+  justify-content:space-between;
+  -webkit-justify-content:space-between;
+  align-items:center;
+  -webkit-align-items:center;
+  z-index: 2;
+}
+
+.kenzap .kp-timetable-1 .kp-nav ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  display:-webkit-flex;
+  align-items:center;
+  -webkit-align-items:center;
+}
+
+
+.kenzap .kp-timetable-1 .kp-nav li{
+  margin:0 60px 0 0;
+}
+
+.kenzap .kp-timetable-1 .kp-nav li a{
+  //font-family: 'Lato', sans-serif;
+  font-size:18px;
+  line-height:1;
+  font-weight:300;
+  color:#666;
+  padding:0 0 18px;
+  display:inline-block;
+  border-bottom:2px solid #fff;
+  transition:all .3s;
+}
+
+.kenzap .kp-timetable-1 .kp-nav li:hover a,
+.kenzap .kp-timetable-1 .kp-nav li.active a{
+  border-bottom:2px solid #e478a7
+}
+
+.kenzap .kp-timetable-1 .kp-nav .modal-link{
+  //font-family: 'Lato', sans-serif;
+  display:block;
+  font-weight:300;
+  background:#333;
+  color:#fff;
+  text-transform:uppercase;
+  font-size:15px;
+  line-height:1.6;
+  padding:10px 0;
+  border-radius:3px;
+  width:260px;
+  text-align:center;
+  position:relative;
+  transition:all .3s
+}
+
+.kenzap .kp-timetable-1 .kp-nav .modal-link:after{
+  content: "\00bb";
+  font-size:25px;
+  line-height:16px;
+  height:20px;
+  width:25px;
+  position:absolute;
+  opacity:0;
+  top:0;
+  bottom:0;
+  right:15px;
+  margin: auto;
+  transition:all .3s;
+}
+
+.kenzap .kp-timetable-1 .kp-nav .modal-link:hover{
+  padding:10px 30px 10px 20px;
+}
+
+.kenzap .kp-timetable-1 .kp-nav .modal-link:hover::after{
+  opacity:1;
+  right:10px;
+}
+
+.kenzap .kp-timetable-1 .kp-content .owl-item{
+  width:100%
+}
+
+.kenzap .kp-timetable-1 .kp-content .owl-hidden{
+  opacity:1;
+}
+
+.kenzap .kp-timetable-1 .kp-box .month-title{
+  //font-family: 'Lato', sans-serif;
+  margin:0;
+  font-size:25px;
+  line-height:25px;
+  text-transform:uppercase;
+  color:#fff;
+  background:#d56e9b;
+  border-left:1px solid #fff;
+  border-right:1px solid #fff;
+  padding:25px 10px;
+  text-align:center;
+  display:block;
+  position:relative;
+  z-index: 2;
+}
+
+.kenzap .kp-timetable-1 .kp-box .month-prev{
+  color:#fff;
+  position:absolute;
+  left:20px;
+  background:url(images/prev-icon.svg) no-repeat center center;
+  background-size:cover;
+  width:23px;
+  height:16px;
+  top:0;
+  bottom:0;
+  margin:auto
+}
+
+.kenzap .kp-timetable-1 .kp-box .month-next{
+  color:#fff;
+  position:absolute;
+  right:20px;
+  background:url(images/next-icon.svg) no-repeat center center;
+  background-size:cover;
+  width:23px;
+  height:16px;
+  top:0;
+  bottom:0;
+  margin:auto
+}
+
+.kenzap .kp-timetable-1 .owl-item:last-child .month-next,
+.kenzap .kp-timetable-1 .owl-item:first-child .month-prev{
+  display:none;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule {
+  position:relative;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule::before {
+  content: 'desktop';
+  display:none;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .timeline {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .timeline ul {
+  margin:0;
+  list-style:none;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .timeline li {
+  position: relative;
+  height: 80px;
+  background:#f5f5f5;
+  display: flex;
+  align-items: center;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .timeline li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #fff;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .timeline li::after {
+  width: 100%;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .timeline li span {
+  display:inline-block;
+  left:1px;
+  width:140px;
+  font-size:16px;
+  color:#333;
+  text-align:center;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .timeline li:last-child {
+  display: none;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events {
+  position: relative;
+  z-index: 1;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events ul{
+  list-style:none;
+  margin:0;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .events-group {
+  margin-bottom: 30px;
+  flex-basis: 100%;
+
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .top-info {
+  width: 100%;
+  padding: 0 5%;
+  z-index: 3;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .top-info > span {
+  display: inline-block;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .events-group > ul {
+  position: relative;
+  padding: 0 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  list-style:none;
+  margin:0;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .events-group > ul::after {
+  display: inline-block;
+  content: '-';
+  width: 1px;
+  height: 100%;
+  opacity: 0;
+  color: transparent;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .single-event {
+  -ms-flex-negative: 0;
+  flex-negative: 0;
+  -webkit-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  float: left;
+  height: 150px;
+  width: 70%;
+  max-width: 300px;
+  margin-right: 20px;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .single-event:last-of-type {
+  margin-right: 5%;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .single-event a {
+  display: block;
+  height: 100%;
+  padding: .8em;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events {
+  float: left;
+  width: 100%;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .events-group {
+  border: 1px solid #fff;
+  margin-bottom: 0;
+}
+
+/*.kenzap .kp-timetable-1 .kp-schedule .events .events-group:not(:first-of-type) {
+  border-left-width: 0;
+}*/
+.kenzap .kp-timetable-1 .kp-schedule .events .top-info {
+  display: table;
+  height: 50px;
+  border-bottom: 1px solid #fff;
+  padding: 0;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .top-info > span {
+  //font-family: 'Lato', sans-serif;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 .5em;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 0;
+  background:#d56e9b;
+  color:#fff;
+  font-size:18px;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .events-group > ul {
+  height: 1200px;
+  display: block;
+  overflow: visible;
+  padding: 0;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .single-event {
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  left: auto;
+  -ms-flex-negative: 1;
+  flex-negative: 1;
+  -webkit-flex-negative: 1;
+  flex-shrink: 1;
+  -webkit-flex-shrink: 1;
+  height: auto;
+  max-width: none;
+  margin-right: 0;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .single-event a {
+  padding: 10px;
+  display:flex;
+  display:-webkit-flex;
+  align-items:center;
+  align-items:center;
+  justify-content:center;
+  -webkit-justify-content:center;
+  flex-direction:column;
+  -webkit-flex-direction:column;
+  text-align:center
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .single-event:last-of-type {
+  margin-right: 0;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events .single-event.selected-event {
+  visibility: hidden;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .events {
+  width: 100%;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule.loading .events .single-event {
+  opacity: 0;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .event-date {
+  //font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  line-height:14px;
+  display: block;
+  color: #fff;
+  margin:0 0 10px
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .event-name{
+  //font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  text-transform:uppercase;
+  color:#fff;
+  margin:0;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .event-name em{
+  //font-family: 'Lato', sans-serif;
+  display:block;
+  text-transform:none;
+  font-style:italic;
+  margin:15px 0 0;
+}
+
+.kenzap .kp-timetable-1 .kp-schedule .single-event{
+  background: #75bdeb;
+}
+
+.kenzap .kp-timetable-1.kenzap-md .kp-nav,
+.kenzap .kp-timetable-1.kenzap-sm .kp-nav,
+.kenzap .kp-timetable-1.kenzap-xs .kp-nav{
+  flex-direction:column;
+  -webkit-flex-direction:column;
+}
+
+.kenzap .kp-timetable-1.kenzap-md .kp-nav ul,
+.kenzap .kp-timetable-1.kenzap-sm .kp-nav ul,
+.kenzap .kp-timetable-1.kenzap-xs .kp-nav ul{
+  margin:0 0 10px;
+  flex-wrap:wrap;
+  -webkit-flex-wrap:wrap;
+  align-items:center;
+  -webkit-align-items:center;
+  justify-content:center;
+  -webkit-justify-content:center;
+}
+
+.kenzap .kp-timetable-1.kenzap-md .kp-nav li,
+.kenzap .kp-timetable-1.kenzap-sm .kp-nav li,
+.kenzap .kp-timetable-1.kenzap-xs .kp-nav li{
+  margin:0 20px 10px 0;
+}
+
+.kenzap .kp-timetable-1.kenzap-md .kp-nav li a,
+.kenzap .kp-timetable-1.kenzap-sm .kp-nav li a,
+.kenzap .kp-timetable-1.kenzap-xs .kp-nav li a{
+  font-size:16px;
+}
+
+.kenzap .kp-timetable-1.kenzap-md .kp-schedule .timeline,
+.kenzap .kp-timetable-1.kenzap-sm .kp-schedule .timeline,
+.kenzap .kp-timetable-1.kenzap-xs .kp-schedule .timeline,
+.kenzap .kp-timetable-1.kenzap-md .kp-schedule .events > ul > li:first-child,
+.kenzap .kp-timetable-1.kenzap-sm .kp-schedule .events > ul > li:first-child,
+.kenzap .kp-timetable-1.kenzap-xs .kp-schedule .events > ul > li:first-child{
+  display:none
+}
+
+.kenzap .kp-timetable-1.kenzap-md .kp-schedule .events .events-group,
+.kenzap .kp-timetable-1.kenzap-sm .kp-schedule .events .events-group,
+.kenzap .kp-timetable-1.kenzap-xs .kp-schedule .events .events-group{
+  width:100%;
+  float:none;
+  margin:0 0 30px;
+  overflow:hidden;
+}
+
+.kenzap .kp-timetable-1.kenzap-md .kp-schedule .events .events-group:not(:first-of-type),
+.kenzap .kp-timetable-1.kenzap-sm .kp-schedule .events .events-group:not(:first-of-type),
+.kenzap .kp-timetable-1.kenzap-xs .kp-schedule .events .events-group:not(:first-of-type){
+  border-left-width: 1px;
+}
+
+.kenzap .kp-timetable-1.kenzap-md .kp-schedule .events .events-group:last-child,
+.kenzap .kp-timetable-1.kenzap-sm .kp-schedule .events .events-group:last-child,
+.kenzap .kp-timetable-1.kenzap-xs .kp-schedule .events .events-group:last-child{
+  display:none
+}
+
+.kenzap .kp-timetable-1.kenzap-md .kp-schedule .events .events-group > ul,
+.kenzap .kp-timetable-1.kenzap-sm .kp-schedule .events .events-group > ul,
+.kenzap .kp-timetable-1.kenzap-xs .kp-schedule .events .events-group > ul{
+  height:auto;
+}
+
+.kenzap .kp-timetable-1.kenzap-md .kp-schedule .events .single-event{
+  position:relative!important;
+  top:auto!important;
+  height:auto!important;
+  width:33.33333%;
+  border-bottom:1px solid #fff;
+  border-right:1px solid #fff;
+  padding:20px 10px
+}
+
+.kenzap .kp-timetable-1.kenzap-sm .kp-box .month-title,
+.kenzap .kp-timetable-1.kenzap-xs .kp-box .month-title{
+  font-size:20px;
+  line-height:1
+}
+
+.kenzap .kp-timetable-1.kenzap-sm .kp-schedule .events .single-event{
+  position:relative!important;
+  top:auto!important;
+  height:auto!important;
+  width:50%;
+  border-bottom:1px solid #fff;
+  border-right:1px solid #fff;
+  padding:20px 10px
+}
+
+.kenzap .kp-timetable-1.kenzap-xs .kp-schedule .events .single-event{
+  position:relative!important;
+  top:auto!important;
+  height:auto!important;
+  width:100%;
+  border-bottom:1px solid #fff;
+  border-right:1px solid #fff;
+  padding:20px 10px
+}
+
+@media screen and (max-width: 61.938em) {
+  /* width: 991px; */
+
+  .kenzap .kp-timetable-1 .kp-nav{
+    flex-direction:column
+  }
+
+  .kenzap .kp-timetable-1 .kp-nav ul{
+    margin:0 0 10px;
+    flex-wrap:wrap;
+    -webkit-flex-wrap:wrap;
+    align-items:center;
+    -webkit-align-items:center;
+    justify-content:center;
+    -webkit-justify-content:center;
+  }
+
+  .kenzap .kp-timetable-1 .kp-nav li{
+    margin:0 20px 10px 0;
+  }
+
+  .kenzap .kp-timetable-1 .kp-nav li a{
+    font-size:16px;
+  }
+
+  .kenzap .kp-timetable-1 .kp-schedule .timeline{
+    display:none
+  }
+
+  .kenzap .kp-timetable-1 .kp-schedule .events > ul > li:first-child{
+    display:none
+  }
+
+  .kenzap .kp-timetable-1 .kp-schedule .events .events-group{
+    width:100%;
+    float:none;
+    margin:0 0 30px;
+    overflow:hidden;
+  }
+
+  .kenzap .kp-timetable-1 .kp-schedule .events .events-group:not(:first-of-type) {
+    border-left-width: 1px;
+  }
+
+  .kenzap .kp-timetable-1 .kp-schedule .events .events-group:last-child{
+    display:none
+  }
+
+  .kenzap .kp-timetable-1 .kp-schedule .events .events-group > ul{
+    height:auto;
+  }
+
+  .kenzap .kp-timetable-1 .kp-schedule .events .single-event{
+    position:relative!important;
+    top:auto!important;
+    height:auto!important;
+    width:33.33333%;
+    border-bottom:1px solid #fff;
+    border-right:1px solid #fff;
+    padding:20px 10px
+  }
+}
+
+@media screen and (min-width: 61.938em) {
+  .kenzap .kp-timetable-1 .kp-schedule .events ul{
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .kenzap .kp-timetable-1 .kp-schedule .events .events-group > ul {
+    height: var(--columnHeight);
+  }
+
+  .kenzap .kp-timetable-1 .kp-schedule .events .single-event.smallEvent {
+    & .remove {
+      right: 0;
+      top: 0;
+    }
+
+    & .event-date {
+      display: none;
+    }
+    & em {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 48em) {
+  /* width 768px */
+
+  .kenzap .kp-timetable-1.kenzap-md .kp-box .month-title,
+  .kenzap .kp-timetable-1 .kp-box .month-title{
+    font-size:20px;
+    line-height:1
+  }
+
+  .kenzap .kp-timetable-1.kenzap-md .kp-schedule .events .single-event,
+  .kenzap .kp-timetable-1 .kp-schedule .events .single-event{
+    width:50%;
+  }
+
+}
+
+
+@media screen and (max-width: 30em) {
+  /* width 480px */
+
+  .kenzap .kp-timetable-1.kenzap-md .kp-schedule .events .single-event,
+  .kenzap .kp-timetable-1 .kp-schedule .events .single-event{
+    width:100%;
+  }
+}

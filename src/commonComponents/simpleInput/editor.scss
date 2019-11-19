@@ -1,0 +1,23 @@
+.simpleInput, .input-buffer {
+  font-weight: inherit;
+  font-style: inherit;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  letter-spacing: inherit;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.input-buffer {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  visibility: hidden;
+  white-space: nowrap;
+}
